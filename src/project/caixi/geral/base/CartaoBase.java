@@ -1,6 +1,7 @@
 package project.caixi.geral.base;
 
 import project.caixi.geral.Banco;
+import project.caixi.nucleo.utils.NumberUtils;
 
 public class CartaoBase {
 
@@ -37,6 +38,10 @@ public class CartaoBase {
 	
 	public Float getLimite() {
 		return limite;
+	}
+	
+	public String getLimiteFormatado() {
+		return NumberUtils.formatCurrency(limite);
 	}
 	
 	public void setLimite(Float limite) {

@@ -8,10 +8,9 @@ import project.caixi.nucleo.enumerados.SexoEnum;
 import project.caixi.nucleo.enumerados.TipoContaEnum;
 import project.caixi.nucleo.enumerados.TipoOperacaoEnum;
 
-// Classe para testes das funcionalidades...
-
 public class Teste {
 
+	// Classe para testes das funcionalidades...
 	public static void main(String[] args) {
 		
 		// Populando as entidades...
@@ -39,20 +38,20 @@ public class Teste {
 		// Saque: 
 		System.out.println("Saque: ");
 		System.out.println("");
-		System.out.println("Saldo Anterior: " + contaCl1.getSaldo());
+		System.out.println("Saldo Anterior: " + contaCl1.getSaldoFormatado());
 		contaCl1.sacar((float) 2500);
 		System.out.println("");
-		System.out.println("Saldo Atual: " + contaCl1.getSaldo());
+		System.out.println("Saldo Atual: " + contaCl1.getSaldoFormatado());
 		
 		System.out.println("---------------------------------------------");
 		
 		// Depósito: 
 		System.out.println("Depósito: ");
 		System.out.println("");
-		System.out.println("Saldo Anterior: " + contaCl1.getSaldo());
+		System.out.println("Saldo Anterior: " + contaCl1.getSaldoFormatado());
 		contaCl1.depositar((float) 2500);
 		System.out.println("");
-		System.out.println("Saldo Atual: " + contaCl1.getSaldo());
+		System.out.println("Saldo Atual: " + contaCl1.getSaldoFormatado());
 		
 		System.out.println("---------------------------------------------");
 		
@@ -80,12 +79,14 @@ public class Teste {
 		// Transferencia sem erros: 
 		System.out.println("Transferência: ");
 		System.out.println("");
-		System.out.println("Saldo Anterior Próprietario: " + contaCl1.getSaldo());
-		System.out.println("Saldo Anterior Receptor: " + contaCl2.getSaldo());
+		System.out.println("Saldo Anterior Próprietario: " + contaCl1.getSaldoFormatado());
+		System.out.println("Saldo Anterior Receptor: " + contaCl2.getSaldoFormatado());
 		contaCl1.transferir((float) 2500, contaCl2);
 		System.out.println("");
-		System.out.println("Saldo Atual Próprietario: " + contaCl1.getSaldo());
-		System.out.println("Saldo Atual Receptor: " + contaCl2.getSaldo());		
+		System.out.println("Saldo Atual Próprietario: " + contaCl1.getSaldoFormatado());
+		System.out.println("Saldo Atual Receptor: " + contaCl2.getSaldoFormatado());		
+		
+		System.out.println("---------------------------------------------");
 		
 		// Saque Utilizando o cartão de crédito: 
 		
@@ -111,10 +112,12 @@ public class Teste {
 		
 		System.out.println("Cartão de Crédito: ");
 		System.out.println("");
-		System.out.println("Saldo Anterior Cartão: " + contaCorrente.getCartaoCredito().getLimite());
+		System.out.println("Saldo Anterior: " + contaCorrente.getSaldoFormatado());
+		System.out.println("Saldo Anterior Cartão: " + contaCorrente.getCartaoCredito().getLimiteFormatado());
 		contaCl1.usarCredito((float) 3000, contaCorrente);
 		System.out.println("");
-		System.out.println("Saldo Atual Cartão: " + contaCorrente.getCartaoCredito().getLimite());
+		System.out.println("Saldo Atual: " + contaCorrente.getSaldoFormatado());
+		System.out.println("Saldo Atual Cartão: " + contaCorrente.getCartaoCredito().getLimiteFormatado());
 		
 		contaCl1.imprimirExtrato(contaCl1);
 	}

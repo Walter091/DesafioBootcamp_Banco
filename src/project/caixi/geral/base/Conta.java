@@ -7,6 +7,7 @@ import project.caixi.nucleo.ValidationServices;
 import project.caixi.nucleo.enumerados.TipoContaEnum;
 import project.caixi.nucleo.enumerados.TipoOperacaoEnum;
 import project.caixi.nucleo.interfaces.IConta;
+import project.caixi.nucleo.utils.NumberUtils;
 
 public class Conta implements IConta{
 	
@@ -65,8 +66,8 @@ public class Conta implements IConta{
 						+ " | Tipo Conta: " + tipoConta.getDescricao()
 						+ " >> "
 						+ " | >>>> " + operacao.getDescricao() + " <<<<"
-						+ " | Valor: " + valor
-						+ " | Saldo atual: " + saldo;
+						+ " | Valor: " + NumberUtils.formatCurrency(valor)
+						+ " | Saldo atual: " + getSaldoFormatado();
 						
 						
 				
@@ -84,7 +85,7 @@ public class Conta implements IConta{
 				+ " | Quantidade de Depósitos: " + QTD_DEPOSITO
 				+ " | Quantidade de Transferências: " + QTD_TRANSFERENCIA
 				+ " >> "
-				+ " Saldo atual: " + saldo;
+				+ " Saldo atual: " + getSaldoFormatado();
 				
 				
 		
@@ -136,6 +137,10 @@ public class Conta implements IConta{
 
 	public Float getSaldo() {
 		return saldo;
+	}
+
+	public String getSaldoFormatado() {
+		return NumberUtils.formatCurrency(saldo);
 	}
 
 	public void setSaldo(Float saldo) {
